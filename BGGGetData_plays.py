@@ -18,6 +18,8 @@ USER_NAME = ''
 PLAY_PAGES = 50
 DETAIL = False
 
+OUT_FILE_NAME = play_data.csv
+
 def getopts(argv):
     opts = {}  # Empty dictionary to store key-value pairs.
     while argv:  # While there are arguments left to parse...
@@ -39,14 +41,6 @@ if '-pages' in myargs:
 
 if '-detail' in myargs:
     DETAIL = True
-
-filename = 'play_data.csv'
-headerLine = ('name', 'id', 'mismatch','rating_avg', 'users_rated',\
-              'users_owned','users_trading', 'users_wanting', 'users_wishing', \
-              'users_commented', 'rank', 'year','min_players','max_players','play_time', \
-              'min_playtime', 'max_playtime', 'age', 'description', 'publisher', \
-              'category_first', 'mechanic_first', 'mechanics','categories',)
-rowsToAdd = []
 
 def urlopen_with_retry(url):
     for _ in range(4):
@@ -142,5 +136,5 @@ if DETAIL:
     print('Game Stats Collected')
 
 joined_pd = pd.merge(plays_pd, lookup_games_pd, how='left', on='id')
-joined_pd.to_csv('play_data.csv', index=False)
+joined_pd.to_csv(OUT_FILE_NAME, index=False)
 print('play_data.csv Created')
