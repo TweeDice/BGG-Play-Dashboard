@@ -9,6 +9,10 @@ Run BGGGetData_plays.py to create a file with your play data:
 
 Open "BGG Play Dashboard.twb" in tableau and point it to your new play_data.csv file.
 
+[Tableau Public Dashboard](https://public.tableau.com/profile/michael8307#!/vizhome/BGGPlayDashboard/Dashboard1?publish=yes)
+
+-Doesn't look great on mobile.
+
 ## Options
 * `-u [str]`       BGG User Name
 * `-pages [int]`   Number of pages of play data to pull (~100 plays = 3 pages). Defaults to 50.
